@@ -78,22 +78,22 @@ public class BanditNumberView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         init();
-        canvas.drawText(getNumString(0)+"",0,getNumY(0),mPaint);
-        canvas.drawText(getNumString(0)+1+"",0,getNumY(0)+getMeasuredHeight(),mPaint);
-        canvas.drawText(getNumString(1)+"",mBounds.width(),getNumY(1),mPaint);
-        canvas.drawText(getNumString(1)+1+"",mBounds.width(),getNumY(1)+getMeasuredHeight(),mPaint);
-        canvas.drawText(getNumString(2)+"",mBounds.width()*2,getNumY(2),mPaint);
-        canvas.drawText(getNumString(2)+1+"",mBounds.width()*2,getNumY(2)+getMeasuredHeight(),mPaint);
-        canvas.drawText(getNumString(3)+"",mBounds.width()*3,getNumY(3),mPaint);
-        canvas.drawText(getNumString(3)+1+"",mBounds.width()*3,getNumY(3)+getMeasuredHeight(),mPaint);
+        canvas.drawText(getNumString(0, 0), 0, getNumY(0), mPaint);
+        canvas.drawText(getNumString(0, 1), 0, getNumY(0) + getMeasuredHeight(), mPaint);
+        canvas.drawText(getNumString(1, 0), mBounds.width(), getNumY(1), mPaint);
+        canvas.drawText(getNumString(1, 1), mBounds.width(), getNumY(1) + getMeasuredHeight(), mPaint);
+        canvas.drawText(getNumString(2, 0), mBounds.width() * 2, getNumY(2), mPaint);
+        canvas.drawText(getNumString(2, 1), mBounds.width() * 2, getNumY(2) + getMeasuredHeight(), mPaint);
+        canvas.drawText(getNumString(3, 0), mBounds.width() * 3, getNumY(3), mPaint);
+        canvas.drawText(getNumString(3, 1), mBounds.width() * 3, getNumY(3) + getMeasuredHeight(), mPaint);
 
     }
 
 
-    private int getNumString(int i) {
+    private String getNumString(int i, int space) {
         if (mMillisUntilFinished==-1)
-            return 0;
-        return (int)(mNumber/(int) Math.pow(10,(3-i)/2)%10+(0>=mMillisUntilFinished-1000*i?0:mMillisUntilFinished))%10;
+            return "0";
+        return (mNumber / (int) Math.pow(10, 3 - i) % 10 + space + (0 >= mMillisUntilFinished - 1000 * i ? 0 : mMillisUntilFinished)) % 10 + "";
     }
 
     private float getNumY(int i) {
