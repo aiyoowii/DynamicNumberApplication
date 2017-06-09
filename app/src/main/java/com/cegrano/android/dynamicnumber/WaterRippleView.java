@@ -47,10 +47,10 @@ public class WaterRippleView extends View {
     }
 
     private void start() {
-        mT = new CountDownTimer(getMeasuredWidth(), 1) {
+        mT = new CountDownTimer(Long.MAX_VALUE, 1) {
             @Override
             public void onTick(long millisUntilFinished) {
-                mOffset = millisUntilFinished - getMeasuredWidth();
+                mOffset = millisUntilFinished % mWater1.getWidth() - mWater1.getWidth();
                 postInvalidate();
             }
 
@@ -95,7 +95,7 @@ public class WaterRippleView extends View {
         if (mWater1 == null)
             init();
         long offset = mOffset;
-        while (offset < getMeasuredWidth()) {
+        while (offset <= getMeasuredWidth()) {
             canvas.drawBitmap(mWater1, offset, getMeasuredHeight() - mWater1.getHeight(), mPaint);
             canvas.drawBitmap(mWater2, offset, getMeasuredHeight() - mWater2.getHeight(), mPaint);
             offset += mWater1.getWidth();
