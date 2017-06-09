@@ -21,6 +21,7 @@ public class BanditNumberView extends View {
     private Rect mBounds = new Rect();
     private int mNumber = 0;
     private long mMillisUntilFinished = -1;
+    private float mDensity;
 
     public BanditNumberView(Context context) {
         super(context);
@@ -44,9 +45,9 @@ public class BanditNumberView extends View {
     }
 
     public void init(){
-        mPaint = new Paint();
-        mPaint.setColor(Color.BLACK);
-        mPaint.setTextSize(getMeasuredHeight());
+        mDensity = getResources().getDisplayMetrics().density;
+        mPaint.setColor(Color.WHITE);
+        mPaint.setTextSize(44 * mDensity);
         mPaint.setAntiAlias(true);
 
         String testString = "8";
