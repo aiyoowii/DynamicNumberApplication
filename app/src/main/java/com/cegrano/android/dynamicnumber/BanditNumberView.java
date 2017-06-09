@@ -8,38 +8,37 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.Build;
 import android.os.CountDownTimer;
-import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 import android.view.View;
 
 /**
  * Created by cegrano on 2017/6/8.
- * 动态变化的数字
+ * 老虎机变化的数字
  */
-public class DynamicNumberView extends View{
+public class BanditNumberView extends View {
     Paint mPaint = new Paint();
     int[] numbers = new int[]{1,0,0,0};
     private Rect mBounds = new Rect();
     private int mNumber = 0;
     private long mMillisUntilFinished = -1;
 
-    public DynamicNumberView(Context context) {
+    public BanditNumberView(Context context) {
         super(context);
         init();
     }
 
-    public DynamicNumberView(Context context, AttributeSet attrs) {
+    public BanditNumberView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public DynamicNumberView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public BanditNumberView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public DynamicNumberView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public BanditNumberView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init();
     }

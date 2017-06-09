@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.cegrano.android.dynamicnumberapplication.MainActivity">
 
-    <com.cegrano.android.dynamicnumber.DynamicNumberView
+    <com.cegrano.android.dynamicnumber.BanditNumberView
         android:id="@+id/number"
         android:layout_width="wrap_content"
         android:layout_height="30dp" />
