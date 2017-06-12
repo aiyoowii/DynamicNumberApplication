@@ -10,6 +10,18 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.cegrano.android.dynamicnumberapplication.MainActivity">
 
+    <TextView
+        android:id="@+id/number_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_green_light"
+        android:textSize="40sp" />
+
+    <com.cegrano.android.dynamicnumber.ShakeNumberView
+        android:id="@+id/shake_number"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:background="@android:color/holo_green_light" />
     <com.cegrano.android.dynamicnumber.BanditNumberView
         android:id="@+id/number"
         android:layout_width="100dp"

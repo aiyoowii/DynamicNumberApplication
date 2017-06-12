@@ -76,9 +76,10 @@ public class DialNumberView extends View {
 //        canvas.drawText("1000", mDial.getWidth() / 2, 83 * mDensity + mBounds.height(), mPaint);
 
 //        canvas.drawBitmap(mArrow, (float) (mDial.getWidth() / 2 + mDial.getWidth() / 2 * Math.cos(Math.PI * degree)), (float) (mDial.getWidth() / 2 - mDial.getWidth() / 2 * Math.sin(Math.PI * degree)), mPaint);
-        canvas.translate((float) (getMeasuredWidth() / 2 + getMeasuredWidth() * 0.73 / 2 * Math.cos(Math.PI * degree / 180) - mArrow.getWidth() / 2),
-                (float) (getMeasuredWidth() / 2 + getMeasuredWidth() * 0.73 / 2 * Math.sin(Math.PI * degree / 180)) - mArrow.getHeight() / 2);
-        canvas.rotate(degree + 90);
+        float r = (getMeasuredWidth() * 0.73f + mArrow.getWidth()) / 2;
+        canvas.translate((float) (getMeasuredWidth() / 2 + r * Math.cos(Math.PI * degree / 180)),
+                (float) (getMeasuredWidth() / 2 + r * Math.sin(Math.PI * degree / 180)));
+        canvas.rotate(degree + 90);//90changed by the image
         canvas.drawBitmap(mArrow, 0, 0, mPaint);
 
     }
