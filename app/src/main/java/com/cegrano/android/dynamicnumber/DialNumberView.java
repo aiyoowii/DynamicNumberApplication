@@ -23,7 +23,7 @@ public class DialNumberView extends View {
     private Bitmap mDial;
     private Bitmap mArrow;
     private float mDensity;
-    private float degree = 0;
+    private float degree = -180;
     private Rect mRect;
     private RectF mRectF;
 
@@ -76,11 +76,19 @@ public class DialNumberView extends View {
 //        canvas.drawText("1000", mDial.getWidth() / 2, 83 * mDensity + mBounds.height(), mPaint);
 
 //        canvas.drawBitmap(mArrow, (float) (mDial.getWidth() / 2 + mDial.getWidth() / 2 * Math.cos(Math.PI * degree)), (float) (mDial.getWidth() / 2 - mDial.getWidth() / 2 * Math.sin(Math.PI * degree)), mPaint);
-        float r = (getMeasuredWidth() * 0.73f) / 2;
-        canvas.translate((float) (getMeasuredWidth() / 2 + r * Math.cos(Math.PI * degree / 180) - mArrow.getHeight() / 2),
-                (float) (getMeasuredWidth() / 2 + r * Math.sin(Math.PI * degree / 180)) - mArrow.getHeight() / 2);
-        canvas.rotate(degree);//changed by the image
-        canvas.drawBitmap(mArrow, 0, 0, mPaint);
+        drawArrow(canvas, 0);
+        drawArrow(canvas, -90);
+        drawArrow(canvas, -180);
+    }
 
+    private void drawArrow(Canvas canvas, float degree) {
+        canvas.save();
+        float r = (getMeasuredWidth() * 0.73f) / 2;
+        float w = (float) (getMeasuredWidth() / 2 + r * Math.cos(Math.PI * degree / 180) - mArrow.getHeight() / 2),
+                h = (float) (getMeasuredWidth() / 2 + r * Math.sin(Math.PI * degree / 180) - mArrow.getHeight() / 2);
+        canvas.translate(w, h);
+        canvas.rotate(degree, mArrow.getWidth() / 2, mArrow.getHeight() / 2);//changed by the image
+        canvas.drawBitmap(mArrow, 0, 0, mPaint);
+        canvas.restore();
     }
 }
