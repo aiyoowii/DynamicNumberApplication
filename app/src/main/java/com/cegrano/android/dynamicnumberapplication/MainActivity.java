@@ -43,5 +43,6 @@ public class MainActivity extends AppCompatActivity {
                 dialNumberView.setNumber(1100);
             }
         }.start();
+//        dialNumberView.setNumber(1500);
     }
 }
